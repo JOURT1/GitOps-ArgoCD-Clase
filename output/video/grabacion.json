@@ -1,0 +1,53 @@
+{
+  "video": "Demostracion-GitOps-ArgoCD.mp4",
+  "frames": 206,
+  "seconds": 217.56,
+  "method": "Capturas periodicas del navegador durante operaciones reales. Intervalos conservados. Subtitulos en espanol. Sin narracion.",
+  "resolution": "1280x720",
+  "scenes": [
+    {
+      "title": "Estado inicial: dos réplicas declaradas en Git y dos Pods Ready",
+      "at": 1794696955.825
+    },
+    {
+      "title": "El manifiesto real en GitHub declara replicas: 2",
+      "at": 1794696978.418
+    },
+    {
+      "title": "Commit y push: Argo CD despliega tres réplicas desde Git",
+      "at": 1794696983.76
+    },
+    {
+      "title": "Argo CD original: estado Synced y Healthy después del commit",
+      "at": 1794697015.743
+    },
+    {
+      "title": "Desvío manual: Git conserva tres, el Deployment tiene dos y selfHeal está desactivado",
+      "at": 1794697022.092
+    },
+    {
+      "title": "Argo CD original muestra OutOfSync: el clúster difiere del repositorio",
+      "at": 1794697063.129
+    },
+    {
+      "title": "Activar selfHeal: Argo CD restaura tres réplicas sin modificar el commit",
+      "at": 1794697069.476
+    },
+    {
+      "title": "Nueva alteración con selfHeal activo: el estado de Git se recupera automáticamente",
+      "at": 1794697124.895
+    },
+    {
+      "title": "Interfaz original de Argo CD tras la reparación",
+      "at": 1794697139.175
+    },
+    {
+      "title": "La página responde desde un Pod real de Kubernetes",
+      "at": 1794697160.743
+    },
+    {
+      "title": "Resultado: Git y Kubernetes coinciden en tres réplicas, Synced y Healthy",
+      "at": 1794697165.807
+    }
+  ]
+}

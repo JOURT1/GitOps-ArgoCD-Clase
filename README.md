@@ -19,7 +19,7 @@ que Kubernetes por sí solo conservaría en dos si nadie lo reconciliara con Git
 
 ## Ejecutar en Windows
 
-Requisitos: Docker Desktop con contenedores Linux, Git con permiso de push a este repositorio,
+Requisitos: PowerShell 7, Docker Desktop con contenedores Linux, Git con permiso de push a este repositorio,
 Python 3 y kubectl. El script reutiliza kind si existe en el laboratorio anterior o
 descarga su binario oficial verificando SHA256.
 
@@ -46,10 +46,25 @@ Para otro repositorio, adapta las URL de `argocd/` y la constante `REPOSITORY` d
 
 ## Actividad y grabación
 
+- [Video de la demostración real, MP4](output/video/Demostracion-GitOps-ArgoCD.mp4): 3 min 38 s,
+  sin narración y con subtítulos en español.
 - [Actividad para el punto extra](docs/ACTIVIDAD.md)
 - [Guion del video](docs/GUION-VIDEO.md)
 - [Comandos equivalentes al panel](docs/COMANDOS.md)
 - [Evidencias de la ejecución](output/evidencia.json), una vez generado el archivo
+
+La grabación muestra el panel conectado al clúster, el manifiesto de GitHub,
+la interfaz original de Argo CD y una página servida por un Pod real.
+Se construyó con capturas periódicas del navegador y conserva sus intervalos medidos.
+Los subtítulos identifican cada paso. Pueden usarla como ejemplo o grabar una toma
+nueva con sus propias voces siguiendo el guion.
+
+La ejecución verificada aprobó diez comprobaciones: estado inicial, publicación de
+un nuevo commit, despliegue de su revisión, tres Pods Ready, desvío manual,
+persistencia del desvío sin selfHeal, reparación, segunda reparación con selfHeal activo,
+respuesta HTTP 200 desde un Pod y preparación de una nueva toma.
+El [estado final grabado](output/video/estado-final-grabado.json) conserva el commit
+de tres réplicas usado en el video. Al terminar se volvió a dos réplicas mediante otro commit.
 
 Antes de cada repetición pulsa **Preparar otra demostración** y espera a ver
 Git=2, Deployment=2, dos Pods Ready y `Synced / Healthy`.

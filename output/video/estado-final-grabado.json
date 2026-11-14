@@ -1,0 +1,248 @@
+{
+  "connected": true,
+  "busy": false,
+  "events": [
+    {
+      "at": "2026-11-14T22:50:46.684+00:00",
+      "message": "Git: 2 | Deployment: 2 | Ready: 2 | Synced | selfHeal: True",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:51:34.925+00:00",
+      "message": "selfHeal activado. Argo CD puede corregir los desvios.",
+      "kind": "action"
+    },
+    {
+      "at": "2026-11-14T22:51:36.954+00:00",
+      "message": "Commit 101312ce publicado en GitHub: replicas=2. Esperando a Argo CD; el panel no aplica el Deployment.",
+      "kind": "git"
+    },
+    {
+      "at": "2026-11-14T22:51:37.469+00:00",
+      "message": "selfHeal activado. Argo CD puede corregir los desvios.",
+      "kind": "action"
+    },
+    {
+      "at": "2026-11-14T22:51:40.478+00:00",
+      "message": "Commit 93ce6c97 publicado en GitHub: replicas=3. Esperando a Argo CD; el panel no aplica el Deployment.",
+      "kind": "git"
+    },
+    {
+      "at": "2026-11-14T22:51:41.157+00:00",
+      "message": "Git: 3 | Deployment: 2 | Ready: 2 | Synced | selfHeal: True",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:51:44.778+00:00",
+      "message": "Git: 3 | Deployment: 3 | Ready: 2 | Synced | selfHeal: True",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:51:46.591+00:00",
+      "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: True",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:51:47.032+00:00",
+      "message": "selfHeal desactivado para observar el desvio. Auto-sync sigue habilitado.",
+      "kind": "action"
+    },
+    {
+      "at": "2026-11-14T22:51:47.484+00:00",
+      "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: False",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:51:49.129+00:00",
+      "message": "Cambio manual: Deployment.spec.replicas=2. Git sigue declarando 3. No se modifico Git.",
+      "kind": "drift"
+    },
+    {
+      "at": "2026-11-14T22:51:49.286+00:00",
+      "message": "Git: 3 | Deployment: 2 | Ready: 2 | OutOfSync | selfHeal: False",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:51:55.602+00:00",
+      "message": "selfHeal activado. Argo CD puede corregir los desvios.",
+      "kind": "action"
+    },
+    {
+      "at": "2026-11-14T22:51:56.277+00:00",
+      "message": "Git: 3 | Deployment: 3 | Ready: 2 | Synced | selfHeal: True",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:51:58.074+00:00",
+      "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: True",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:51:59.110+00:00",
+      "message": "Nuevo cambio manual a 2 con selfHeal activo. Argo CD volvera a aplicar las 3 replicas de Git.",
+      "kind": "drift"
+    },
+    {
+      "at": "2026-11-14T22:51:59.864+00:00",
+      "message": "Git: 3 | Deployment: 2 | Ready: 2 | OutOfSync | selfHeal: True",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:52:03.227+00:00",
+      "message": "Git: 3 | Deployment: 3 | Ready: 2 | Synced | selfHeal: True",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:52:04.125+00:00",
+      "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: True",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:52:04.647+00:00",
+      "message": "selfHeal activado. Argo CD puede corregir los desvios.",
+      "kind": "action"
+    },
+    {
+      "at": "2026-11-14T22:52:07.572+00:00",
+      "message": "Commit 45b24d76 publicado en GitHub: replicas=2. Esperando a Argo CD; el panel no aplica el Deployment.",
+      "kind": "git"
+    },
+    {
+      "at": "2026-11-14T22:52:07.721+00:00",
+      "message": "Git: 2 | Deployment: 3 | Ready: 3 | Synced | selfHeal: True",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:52:14.962+00:00",
+      "message": "Git: 2 | Deployment: 2 | Ready: 2 | Synced | selfHeal: True",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:56:23.804+00:00",
+      "message": "selfHeal activado. Argo CD puede corregir los desvios.",
+      "kind": "action"
+    },
+    {
+      "at": "2026-11-14T22:56:26.873+00:00",
+      "message": "Commit 77e6bc41 publicado en GitHub: replicas=3. Esperando a Argo CD; el panel no aplica el Deployment.",
+      "kind": "git"
+    },
+    {
+      "at": "2026-11-14T22:56:27.696+00:00",
+      "message": "Git: 3 | Deployment: 2 | Ready: 2 | Synced | selfHeal: True",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:56:34.930+00:00",
+      "message": "Git: 3 | Deployment: 3 | Ready: 2 | Synced | selfHeal: True",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:56:38.219+00:00",
+      "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: True",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:57:02.184+00:00",
+      "message": "selfHeal desactivado para observar el desvio. Auto-sync sigue habilitado.",
+      "kind": "action"
+    },
+    {
+      "at": "2026-11-14T22:57:02.972+00:00",
+      "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: False",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:57:04.303+00:00",
+      "message": "Cambio manual: Deployment.spec.replicas=2. Git sigue declarando 3. No se modifico Git.",
+      "kind": "drift"
+    },
+    {
+      "at": "2026-11-14T22:57:04.781+00:00",
+      "message": "Git: 3 | Deployment: 2 | Ready: 2 | OutOfSync | selfHeal: False",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:57:49.495+00:00",
+      "message": "selfHeal activado. Argo CD puede corregir los desvios.",
+      "kind": "action"
+    },
+    {
+      "at": "2026-11-14T22:57:50.440+00:00",
+      "message": "Git: 3 | Deployment: 3 | Ready: 2 | Synced | selfHeal: True",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:57:52.269+00:00",
+      "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: True",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:58:44.984+00:00",
+      "message": "Nuevo cambio manual a 2 con selfHeal activo. Argo CD volvera a aplicar las 3 replicas de Git.",
+      "kind": "drift"
+    },
+    {
+      "at": "2026-11-14T22:58:45.851+00:00",
+      "message": "Git: 3 | Deployment: 3 | Ready: 2 | Synced | selfHeal: True",
+      "kind": "state"
+    },
+    {
+      "at": "2026-11-14T22:58:47.688+00:00",
+      "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: True",
+      "kind": "state"
+    }
+  ],
+  "updatedAt": "2026-11-14T23:00:01.181+00:00",
+  "git": {
+    "replicas": 3,
+    "commit": "77e6bc414183578e75a4c793635c55cd07ee3642",
+    "message": "demo: declarar 3 replicas en Git",
+    "repository": "https://github.com/JOURT1/GitOps-ArgoCD-Clase",
+    "file": "https://github.com/JOURT1/GitOps-ArgoCD-Clase/blob/main/k8s/deployment.yaml"
+  },
+  "cluster": {
+    "target": 3,
+    "ready": 3,
+    "available": 3,
+    "pods": [
+      {
+        "name": "hola-gitops-68bd5c5d74-lmrsz",
+        "uid": "29f21c85-d186-4c1a-8449-18a2fb7b32ea",
+        "ready": true,
+        "phase": "Running",
+        "terminating": false
+      },
+      {
+        "name": "hola-gitops-68bd5c5d74-m2bwx",
+        "uid": "67a86e75-73f3-423b-a7ce-8c940889d909",
+        "ready": true,
+        "phase": "Running",
+        "terminating": false
+      },
+      {
+        "name": "hola-gitops-68bd5c5d74-vnrsj",
+        "uid": "8955a6b3-8a76-4d0b-baca-be9c9a562561",
+        "ready": true,
+        "phase": "Running",
+        "terminating": false
+      }
+    ]
+  },
+  "argo": {
+    "sync": "Synced",
+    "health": "Healthy",
+    "revision": "77e6bc414183578e75a4c793635c55cd07ee3642",
+    "selfHeal": true,
+    "autoSync": true,
+    "operation": "Succeeded",
+    "conditions": [],
+    "reconciledAt": "2026-11-14T22:59:53Z",
+    "url": "http://127.0.0.1:14580/applications/argocd/hola-gitops"
+  },
+  "appUrl": "http://127.0.0.1:14500",
+  "context": "kind-gitops-clase",
+  "namespace": "demo-clase",
+  "action": "drift-with-heal",
+  "actionError": null
+}

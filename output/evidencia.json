@@ -1,0 +1,659 @@
+{
+  "startedAt": "2026-11-14T22:51:34.796870+00:00",
+  "checks": [
+    "initial_two_replicas",
+    "new_commit_pushed",
+    "argo_deployed_same_revision",
+    "three_ready",
+    "manual_drift_without_git_change",
+    "drift_persists_without_self_heal",
+    "argo_self_heal_restores_git_state",
+    "active_self_heal_corrects_second_drift",
+    "application_http_200_from_real_pod",
+    "reset_via_git"
+  ],
+  "samples": {
+    "initial": {
+      "connected": true,
+      "busy": false,
+      "events": [
+        {
+          "at": "2026-11-14T22:50:46.684+00:00",
+          "message": "Git: 2 | Deployment: 2 | Ready: 2 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:34.925+00:00",
+          "message": "selfHeal activado. Argo CD puede corregir los desvios.",
+          "kind": "action"
+        },
+        {
+          "at": "2026-11-14T22:51:36.954+00:00",
+          "message": "Commit 101312ce publicado en GitHub: replicas=2. Esperando a Argo CD; el panel no aplica el Deployment.",
+          "kind": "git"
+        }
+      ],
+      "updatedAt": "2026-11-14T22:51:36.626+00:00",
+      "git": {
+        "replicas": 2,
+        "commit": "101312cefb1945db0ca500b0277c260dba6d0c3f",
+        "message": "Corregir lista de recursos al invocar kubectl desde PowerShell",
+        "repository": "https://github.com/JOURT1/GitOps-ArgoCD-Clase",
+        "file": "https://github.com/JOURT1/GitOps-ArgoCD-Clase/blob/main/k8s/deployment.yaml"
+      },
+      "cluster": {
+        "target": 2,
+        "ready": 2,
+        "available": 2,
+        "pods": [
+          {
+            "name": "hola-gitops-68bd5c5d74-lmrsz",
+            "uid": "29f21c85-d186-4c1a-8449-18a2fb7b32ea",
+            "ready": true,
+            "phase": "Running",
+            "terminating": false
+          },
+          {
+            "name": "hola-gitops-68bd5c5d74-vnrsj",
+            "uid": "8955a6b3-8a76-4d0b-baca-be9c9a562561",
+            "ready": true,
+            "phase": "Running",
+            "terminating": false
+          }
+        ]
+      },
+      "argo": {
+        "sync": "Synced",
+        "health": "Healthy",
+        "revision": "101312cefb1945db0ca500b0277c260dba6d0c3f",
+        "selfHeal": true,
+        "autoSync": true,
+        "operation": "Succeeded",
+        "conditions": [],
+        "reconciledAt": "2026-11-14T22:51:33Z",
+        "url": "http://127.0.0.1:14580/applications/argocd/hola-gitops"
+      },
+      "appUrl": "http://127.0.0.1:14500",
+      "context": "kind-gitops-clase",
+      "namespace": "demo-clase",
+      "action": "reset",
+      "actionError": null
+    },
+    "git_three": {
+      "connected": true,
+      "busy": false,
+      "events": [
+        {
+          "at": "2026-11-14T22:50:46.684+00:00",
+          "message": "Git: 2 | Deployment: 2 | Ready: 2 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:34.925+00:00",
+          "message": "selfHeal activado. Argo CD puede corregir los desvios.",
+          "kind": "action"
+        },
+        {
+          "at": "2026-11-14T22:51:36.954+00:00",
+          "message": "Commit 101312ce publicado en GitHub: replicas=2. Esperando a Argo CD; el panel no aplica el Deployment.",
+          "kind": "git"
+        },
+        {
+          "at": "2026-11-14T22:51:37.469+00:00",
+          "message": "selfHeal activado. Argo CD puede corregir los desvios.",
+          "kind": "action"
+        },
+        {
+          "at": "2026-11-14T22:51:40.478+00:00",
+          "message": "Commit 93ce6c97 publicado en GitHub: replicas=3. Esperando a Argo CD; el panel no aplica el Deployment.",
+          "kind": "git"
+        },
+        {
+          "at": "2026-11-14T22:51:41.157+00:00",
+          "message": "Git: 3 | Deployment: 2 | Ready: 2 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:44.778+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 2 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:46.591+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: True",
+          "kind": "state"
+        }
+      ],
+      "updatedAt": "2026-11-14T22:51:46.592+00:00",
+      "git": {
+        "replicas": 3,
+        "commit": "93ce6c971d743d168232814f141e47422793e076",
+        "message": "demo: declarar 3 replicas en Git",
+        "repository": "https://github.com/JOURT1/GitOps-ArgoCD-Clase",
+        "file": "https://github.com/JOURT1/GitOps-ArgoCD-Clase/blob/main/k8s/deployment.yaml"
+      },
+      "cluster": {
+        "target": 3,
+        "ready": 3,
+        "available": 3,
+        "pods": [
+          {
+            "name": "hola-gitops-68bd5c5d74-lmrsz",
+            "uid": "29f21c85-d186-4c1a-8449-18a2fb7b32ea",
+            "ready": true,
+            "phase": "Running",
+            "terminating": false
+          },
+          {
+            "name": "hola-gitops-68bd5c5d74-ngrsf",
+            "uid": "a557071e-2fda-48a5-b0b7-308a7ee4b43e",
+            "ready": true,
+            "phase": "Running",
+            "terminating": false
+          },
+          {
+            "name": "hola-gitops-68bd5c5d74-vnrsj",
+            "uid": "8955a6b3-8a76-4d0b-baca-be9c9a562561",
+            "ready": true,
+            "phase": "Running",
+            "terminating": false
+          }
+        ]
+      },
+      "argo": {
+        "sync": "Synced",
+        "health": "Healthy",
+        "revision": "93ce6c971d743d168232814f141e47422793e076",
+        "selfHeal": true,
+        "autoSync": true,
+        "operation": "Succeeded",
+        "conditions": [],
+        "reconciledAt": "2026-11-14T22:51:44Z",
+        "url": "http://127.0.0.1:14580/applications/argocd/hola-gitops"
+      },
+      "appUrl": "http://127.0.0.1:14500",
+      "context": "kind-gitops-clase",
+      "namespace": "demo-clase",
+      "action": "publish-three",
+      "actionError": null
+    },
+    "drift_without_heal": {
+      "connected": true,
+      "busy": false,
+      "events": [
+        {
+          "at": "2026-11-14T22:50:46.684+00:00",
+          "message": "Git: 2 | Deployment: 2 | Ready: 2 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:34.925+00:00",
+          "message": "selfHeal activado. Argo CD puede corregir los desvios.",
+          "kind": "action"
+        },
+        {
+          "at": "2026-11-14T22:51:36.954+00:00",
+          "message": "Commit 101312ce publicado en GitHub: replicas=2. Esperando a Argo CD; el panel no aplica el Deployment.",
+          "kind": "git"
+        },
+        {
+          "at": "2026-11-14T22:51:37.469+00:00",
+          "message": "selfHeal activado. Argo CD puede corregir los desvios.",
+          "kind": "action"
+        },
+        {
+          "at": "2026-11-14T22:51:40.478+00:00",
+          "message": "Commit 93ce6c97 publicado en GitHub: replicas=3. Esperando a Argo CD; el panel no aplica el Deployment.",
+          "kind": "git"
+        },
+        {
+          "at": "2026-11-14T22:51:41.157+00:00",
+          "message": "Git: 3 | Deployment: 2 | Ready: 2 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:44.778+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 2 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:46.591+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:47.032+00:00",
+          "message": "selfHeal desactivado para observar el desvio. Auto-sync sigue habilitado.",
+          "kind": "action"
+        },
+        {
+          "at": "2026-11-14T22:51:47.484+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: False",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:49.129+00:00",
+          "message": "Cambio manual: Deployment.spec.replicas=2. Git sigue declarando 3. No se modifico Git.",
+          "kind": "drift"
+        },
+        {
+          "at": "2026-11-14T22:51:49.286+00:00",
+          "message": "Git: 3 | Deployment: 2 | Ready: 2 | OutOfSync | selfHeal: False",
+          "kind": "state"
+        }
+      ],
+      "updatedAt": "2026-11-14T22:51:49.286+00:00",
+      "git": {
+        "replicas": 3,
+        "commit": "93ce6c971d743d168232814f141e47422793e076",
+        "message": "demo: declarar 3 replicas en Git",
+        "repository": "https://github.com/JOURT1/GitOps-ArgoCD-Clase",
+        "file": "https://github.com/JOURT1/GitOps-ArgoCD-Clase/blob/main/k8s/deployment.yaml"
+      },
+      "cluster": {
+        "target": 2,
+        "ready": 2,
+        "available": 2,
+        "pods": [
+          {
+            "name": "hola-gitops-68bd5c5d74-lmrsz",
+            "uid": "29f21c85-d186-4c1a-8449-18a2fb7b32ea",
+            "ready": true,
+            "phase": "Running",
+            "terminating": false
+          },
+          {
+            "name": "hola-gitops-68bd5c5d74-ngrsf",
+            "uid": "a557071e-2fda-48a5-b0b7-308a7ee4b43e",
+            "ready": true,
+            "phase": "Running",
+            "terminating": true
+          },
+          {
+            "name": "hola-gitops-68bd5c5d74-vnrsj",
+            "uid": "8955a6b3-8a76-4d0b-baca-be9c9a562561",
+            "ready": true,
+            "phase": "Running",
+            "terminating": false
+          }
+        ]
+      },
+      "argo": {
+        "sync": "OutOfSync",
+        "health": "Healthy",
+        "revision": "93ce6c971d743d168232814f141e47422793e076",
+        "selfHeal": false,
+        "autoSync": true,
+        "operation": "Succeeded",
+        "conditions": [],
+        "reconciledAt": "2026-11-14T22:51:44Z",
+        "url": "http://127.0.0.1:14580/applications/argocd/hola-gitops"
+      },
+      "appUrl": "http://127.0.0.1:14500",
+      "context": "kind-gitops-clase",
+      "namespace": "demo-clase",
+      "action": "drift-without-heal",
+      "actionError": null
+    },
+    "healed": {
+      "connected": true,
+      "busy": false,
+      "events": [
+        {
+          "at": "2026-11-14T22:51:37.469+00:00",
+          "message": "selfHeal activado. Argo CD puede corregir los desvios.",
+          "kind": "action"
+        },
+        {
+          "at": "2026-11-14T22:51:40.478+00:00",
+          "message": "Commit 93ce6c97 publicado en GitHub: replicas=3. Esperando a Argo CD; el panel no aplica el Deployment.",
+          "kind": "git"
+        },
+        {
+          "at": "2026-11-14T22:51:41.157+00:00",
+          "message": "Git: 3 | Deployment: 2 | Ready: 2 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:44.778+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 2 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:46.591+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:47.032+00:00",
+          "message": "selfHeal desactivado para observar el desvio. Auto-sync sigue habilitado.",
+          "kind": "action"
+        },
+        {
+          "at": "2026-11-14T22:51:47.484+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: False",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:49.129+00:00",
+          "message": "Cambio manual: Deployment.spec.replicas=2. Git sigue declarando 3. No se modifico Git.",
+          "kind": "drift"
+        },
+        {
+          "at": "2026-11-14T22:51:49.286+00:00",
+          "message": "Git: 3 | Deployment: 2 | Ready: 2 | OutOfSync | selfHeal: False",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:55.602+00:00",
+          "message": "selfHeal activado. Argo CD puede corregir los desvios.",
+          "kind": "action"
+        },
+        {
+          "at": "2026-11-14T22:51:56.277+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 2 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:58.074+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: True",
+          "kind": "state"
+        }
+      ],
+      "updatedAt": "2026-11-14T22:51:58.969+00:00",
+      "git": {
+        "replicas": 3,
+        "commit": "93ce6c971d743d168232814f141e47422793e076",
+        "message": "demo: declarar 3 replicas en Git",
+        "repository": "https://github.com/JOURT1/GitOps-ArgoCD-Clase",
+        "file": "https://github.com/JOURT1/GitOps-ArgoCD-Clase/blob/main/k8s/deployment.yaml"
+      },
+      "cluster": {
+        "target": 3,
+        "ready": 3,
+        "available": 3,
+        "pods": [
+          {
+            "name": "hola-gitops-68bd5c5d74-lmrsz",
+            "uid": "29f21c85-d186-4c1a-8449-18a2fb7b32ea",
+            "ready": true,
+            "phase": "Running",
+            "terminating": false
+          },
+          {
+            "name": "hola-gitops-68bd5c5d74-qzphk",
+            "uid": "dfb3e881-8e5c-4557-9ea8-009b2647ca7e",
+            "ready": true,
+            "phase": "Running",
+            "terminating": false
+          },
+          {
+            "name": "hola-gitops-68bd5c5d74-vnrsj",
+            "uid": "8955a6b3-8a76-4d0b-baca-be9c9a562561",
+            "ready": true,
+            "phase": "Running",
+            "terminating": false
+          }
+        ]
+      },
+      "argo": {
+        "sync": "Synced",
+        "health": "Healthy",
+        "revision": "93ce6c971d743d168232814f141e47422793e076",
+        "selfHeal": true,
+        "autoSync": true,
+        "operation": "Succeeded",
+        "conditions": [],
+        "reconciledAt": "2026-11-14T22:51:56Z",
+        "url": "http://127.0.0.1:14580/applications/argocd/hola-gitops"
+      },
+      "appUrl": "http://127.0.0.1:14500",
+      "context": "kind-gitops-clase",
+      "namespace": "demo-clase",
+      "action": "enable-heal",
+      "actionError": null
+    },
+    "healed_again": {
+      "connected": true,
+      "busy": false,
+      "events": [
+        {
+          "at": "2026-11-14T22:51:46.591+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:47.032+00:00",
+          "message": "selfHeal desactivado para observar el desvio. Auto-sync sigue habilitado.",
+          "kind": "action"
+        },
+        {
+          "at": "2026-11-14T22:51:47.484+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: False",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:49.129+00:00",
+          "message": "Cambio manual: Deployment.spec.replicas=2. Git sigue declarando 3. No se modifico Git.",
+          "kind": "drift"
+        },
+        {
+          "at": "2026-11-14T22:51:49.286+00:00",
+          "message": "Git: 3 | Deployment: 2 | Ready: 2 | OutOfSync | selfHeal: False",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:55.602+00:00",
+          "message": "selfHeal activado. Argo CD puede corregir los desvios.",
+          "kind": "action"
+        },
+        {
+          "at": "2026-11-14T22:51:56.277+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 2 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:58.074+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:59.110+00:00",
+          "message": "Nuevo cambio manual a 2 con selfHeal activo. Argo CD volvera a aplicar las 3 replicas de Git.",
+          "kind": "drift"
+        },
+        {
+          "at": "2026-11-14T22:51:59.864+00:00",
+          "message": "Git: 3 | Deployment: 2 | Ready: 2 | OutOfSync | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:52:03.227+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 2 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:52:04.125+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: True",
+          "kind": "state"
+        }
+      ],
+      "updatedAt": "2026-11-14T22:52:04.125+00:00",
+      "git": {
+        "replicas": 3,
+        "commit": "93ce6c971d743d168232814f141e47422793e076",
+        "message": "demo: declarar 3 replicas en Git",
+        "repository": "https://github.com/JOURT1/GitOps-ArgoCD-Clase",
+        "file": "https://github.com/JOURT1/GitOps-ArgoCD-Clase/blob/main/k8s/deployment.yaml"
+      },
+      "cluster": {
+        "target": 3,
+        "ready": 3,
+        "available": 3,
+        "pods": [
+          {
+            "name": "hola-gitops-68bd5c5d74-dvzmz",
+            "uid": "9311ddc2-1850-4b76-af59-3e902a2d79bc",
+            "ready": true,
+            "phase": "Running",
+            "terminating": false
+          },
+          {
+            "name": "hola-gitops-68bd5c5d74-lmrsz",
+            "uid": "29f21c85-d186-4c1a-8449-18a2fb7b32ea",
+            "ready": true,
+            "phase": "Running",
+            "terminating": false
+          },
+          {
+            "name": "hola-gitops-68bd5c5d74-vnrsj",
+            "uid": "8955a6b3-8a76-4d0b-baca-be9c9a562561",
+            "ready": true,
+            "phase": "Running",
+            "terminating": false
+          }
+        ]
+      },
+      "argo": {
+        "sync": "Synced",
+        "health": "Healthy",
+        "revision": "93ce6c971d743d168232814f141e47422793e076",
+        "selfHeal": true,
+        "autoSync": true,
+        "operation": "Succeeded",
+        "conditions": [],
+        "reconciledAt": "2026-11-14T22:52:02Z",
+        "url": "http://127.0.0.1:14580/applications/argocd/hola-gitops"
+      },
+      "appUrl": "http://127.0.0.1:14500",
+      "context": "kind-gitops-clase",
+      "namespace": "demo-clase",
+      "action": "drift-with-heal",
+      "actionError": null
+    },
+    "reset": {
+      "connected": true,
+      "busy": false,
+      "events": [
+        {
+          "at": "2026-11-14T22:51:49.286+00:00",
+          "message": "Git: 3 | Deployment: 2 | Ready: 2 | OutOfSync | selfHeal: False",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:55.602+00:00",
+          "message": "selfHeal activado. Argo CD puede corregir los desvios.",
+          "kind": "action"
+        },
+        {
+          "at": "2026-11-14T22:51:56.277+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 2 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:58.074+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:51:59.110+00:00",
+          "message": "Nuevo cambio manual a 2 con selfHeal activo. Argo CD volvera a aplicar las 3 replicas de Git.",
+          "kind": "drift"
+        },
+        {
+          "at": "2026-11-14T22:51:59.864+00:00",
+          "message": "Git: 3 | Deployment: 2 | Ready: 2 | OutOfSync | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:52:03.227+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 2 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:52:04.125+00:00",
+          "message": "Git: 3 | Deployment: 3 | Ready: 3 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:52:04.647+00:00",
+          "message": "selfHeal activado. Argo CD puede corregir los desvios.",
+          "kind": "action"
+        },
+        {
+          "at": "2026-11-14T22:52:07.572+00:00",
+          "message": "Commit 45b24d76 publicado en GitHub: replicas=2. Esperando a Argo CD; el panel no aplica el Deployment.",
+          "kind": "git"
+        },
+        {
+          "at": "2026-11-14T22:52:07.721+00:00",
+          "message": "Git: 2 | Deployment: 3 | Ready: 3 | Synced | selfHeal: True",
+          "kind": "state"
+        },
+        {
+          "at": "2026-11-14T22:52:14.962+00:00",
+          "message": "Git: 2 | Deployment: 2 | Ready: 2 | Synced | selfHeal: True",
+          "kind": "state"
+        }
+      ],
+      "updatedAt": "2026-11-14T22:52:14.963+00:00",
+      "git": {
+        "replicas": 2,
+        "commit": "45b24d765c02f9b34074c59b834d67c279c0a959",
+        "message": "demo: declarar 2 replicas en Git",
+        "repository": "https://github.com/JOURT1/GitOps-ArgoCD-Clase",
+        "file": "https://github.com/JOURT1/GitOps-ArgoCD-Clase/blob/main/k8s/deployment.yaml"
+      },
+      "cluster": {
+        "target": 2,
+        "ready": 2,
+        "available": 2,
+        "pods": [
+          {
+            "name": "hola-gitops-68bd5c5d74-dvzmz",
+            "uid": "9311ddc2-1850-4b76-af59-3e902a2d79bc",
+            "ready": true,
+            "phase": "Running",
+            "terminating": true
+          },
+          {
+            "name": "hola-gitops-68bd5c5d74-lmrsz",
+            "uid": "29f21c85-d186-4c1a-8449-18a2fb7b32ea",
+            "ready": true,
+            "phase": "Running",
+            "terminating": false
+          },
+          {
+            "name": "hola-gitops-68bd5c5d74-vnrsj",
+            "uid": "8955a6b3-8a76-4d0b-baca-be9c9a562561",
+            "ready": true,
+            "phase": "Running",
+            "terminating": false
+          }
+        ]
+      },
+      "argo": {
+        "sync": "Synced",
+        "health": "Healthy",
+        "revision": "45b24d765c02f9b34074c59b834d67c279c0a959",
+        "selfHeal": true,
+        "autoSync": true,
+        "operation": "Succeeded",
+        "conditions": [],
+        "reconciledAt": "2026-11-14T22:52:14Z",
+        "url": "http://127.0.0.1:14580/applications/argocd/hola-gitops"
+      },
+      "appUrl": "http://127.0.0.1:14500",
+      "context": "kind-gitops-clase",
+      "namespace": "demo-clase",
+      "action": "reset",
+      "actionError": null
+    }
+  },
+  "http": {
+    "status": 200,
+    "pod": "hola-gitops-68bd5c5d74-lmrsz"
+  },
+  "passed": true,
+  "finishedAt": "2026-11-14T22:52:15.106785+00:00"
+}

@@ -1,0 +1,48 @@
+1
+00:00:00,000 --> 00:00:22,543
+Estado inicial: dos réplicas declaradas en Git y dos Pods Ready
+
+2
+00:00:22,593 --> 00:00:27,885
+El manifiesto real en GitHub declara replicas: 2
+
+3
+00:00:27,935 --> 00:00:59,868
+Commit y push: Argo CD despliega tres réplicas desde Git
+
+4
+00:00:59,918 --> 00:01:06,217
+Argo CD original: estado Synced y Healthy después del commit
+
+5
+00:01:06,267 --> 00:01:47,254
+Desvío manual: Git conserva tres, el Deployment tiene dos y
+selfHeal está desactivado
+
+6
+00:01:47,304 --> 00:01:53,601
+Argo CD original muestra OutOfSync: el clúster difiere del
+repositorio
+
+7
+00:01:53,651 --> 00:02:49,020
+Activar selfHeal: Argo CD restaura tres réplicas sin modificar el
+commit
+
+8
+00:02:49,070 --> 00:03:03,300
+Nueva alteración con selfHeal activo: el estado de Git se recupera
+automáticamente
+
+9
+00:03:03,350 --> 00:03:24,868
+Interfaz original de Argo CD tras la reparación
+
+10
+00:03:24,918 --> 00:03:29,932
+La página responde desde un Pod real de Kubernetes
+
+11
+00:03:29,982 --> 00:03:37,560
+Resultado: Git y Kubernetes coinciden en tres réplicas, Synced y
+Healthy
