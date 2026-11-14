@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hola-gitops
+  namespace: demo-clase
+spec:
+  replicas: 2
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: hola-gitops
+  template:
+    metadata:
+      labels:
+        app: hola-gitops
+    spec:
+      containers:
+        - name: web
+          image: nginx:1.28-alpine
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          command: ["/bin/sh", "-c"]
+          args:
+            - >-
+              printf '{"pod":"%s"}\n' "$POD_NAME" > /usr/share/nginx/html/pod.json;
+              exec nginx -g 'daemon off;'
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 1
+            periodSeconds: 2
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: 20m
+              memory: 24Mi
+            limits:
+              cpu: 200m
+              memory: 96Mi
+          volumeMounts:
+            - name: pagina
+              mountPath: /usr/share/nginx/html/index.html
+              subPath: index.html
+      volumes:
+        - name: pagina
+          configMap:
+            name: pagina-gitops

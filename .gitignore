@@ -1,0 +1,8 @@
+.local/
+.tools/
+output/video/frames/
+__pycache__/
+*.pyc
+*.log
+*kubeconfig*
+.env
