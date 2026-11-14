@@ -98,7 +98,7 @@ do {
     Start-Sleep -Seconds 3
 } while ((Get-Date) -lt $deadline)
 if ($app.status.sync.status -ne 'Synced' -or $app.status.health.status -ne 'Healthy') { throw 'La aplicacion no llego a Synced / Healthy. Consulta kubectl get application hola-gitops -n argocd con el kubeconfig local.' }
-Invoke-LabKubectl -n demo-clase get deployments,pods,services
+Invoke-LabKubectl -n demo-clase get 'deployments,pods,services'
 $response = Invoke-WebRequest 'http://127.0.0.1:14500/'
 if ($response.StatusCode -ne 200) { throw 'La pagina de demostracion no responde.' }
 if (-not $NoPanel) {
