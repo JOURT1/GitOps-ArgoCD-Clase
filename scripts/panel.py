@@ -38,7 +38,7 @@ def run(args, timeout=30):
     if process.returncode:
         detail = (process.stderr or process.stdout).strip()[-1500:]
         raise RuntimeError(detail or f'El comando termino con codigo {process.returncode}')
-    return process.stdout.strip()
+    return process.stdout.rstrip('\r\n')
 
 
 def kubectl(*args, json_result=False):
