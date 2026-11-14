@@ -49,6 +49,9 @@ kind: ConfigMap
 metadata:
   name: argocd-cm
   namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
 data:
   users.anonymous.enabled: "true"
   timeout.reconciliation: "10s"
@@ -59,6 +62,9 @@ kind: ConfigMap
 metadata:
   name: argocd-rbac-cm
   namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-rbac-cm
+    app.kubernetes.io/part-of: argocd
 data:
   policy.default: role:readonly
 ---
@@ -67,11 +73,14 @@ kind: ConfigMap
 metadata:
   name: argocd-cmd-params-cm
   namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-cmd-params-cm
+    app.kubernetes.io/part-of: argocd
 data:
   server.insecure: "true"
   controller.self.heal.timeout.seconds: "5"
 '@
-$settings | & kubectl --kubeconfig $kubeConfig --context kind-gitops-clase apply --server-side --force-conflicts -f -
+$settings | & kubectl --kubeconfig $kubeConfig --context kind-gitops-clase apply --server-side --field-manager=gitops-clase-settings --force-conflicts -f -
 if ($LASTEXITCODE -ne 0) { throw 'No se pudo configurar Argo CD.' }
 Invoke-LabKubectl -n argocd patch service argocd-server --type merge -p '{"spec":{"type":"NodePort","ports":[{"name":"http","port":80,"protocol":"TCP","targetPort":8080,"nodePort":30080}]}}'
 # Reiniciar solo estos dos controladores hace que lean los parametros del laboratorio.
